@@ -53,7 +53,7 @@ class SingleItem extends Component {
           console.log(data);
           return <SingleItemStyles>
             <Head>
-              <title>Sick fits | {item.title}</title>
+              <title>Sick Fits | {item.title}</title>
             </Head>
             <img scr={item.largeImage} alt={item.title} />
             <div className="detais">
