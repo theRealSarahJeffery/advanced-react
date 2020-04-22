@@ -102,7 +102,7 @@ class UpdateItem extends Component {
                         name="price"
                         placeholder="Price"
                         required
-                        defauleValue={data.item.price}
+                        defaultValue={data.item.price}
                         onChange={this.handleChange}
                       />
                     </label>

@@ -6,8 +6,9 @@ import Form from './styles/Form';
 import formatMoney from '../lib/formatMoney';
 import Error from './ErrorMessage';
 
+
 const CREATE_ITEM_MUTATION = gql`
-  mutation CREATE_ITEM_MUTATION (
+  mutation CREATE_ITEM_MUTATION(
     $title: String!
     $description: String!
     $price: Int!
@@ -68,6 +69,7 @@ class CreateItem extends Component {
         {this.state}>
         {(createItem, { loading, error }) => (
           <Form
+            data-test="form"
             onSubmit={async e => {
               e.preventDefault();
               const res = await createItem();
@@ -90,8 +92,8 @@ class CreateItem extends Component {
                   required
                   onChange={this.uploadFile}
                 />
-                {this.state.image && (<img width="200" src=
-                  {this.state.image} alt="Upload Preview" />)}
+                {this.state.image && (<img width="200"
+                  src={this.state.image} alt="Upload Preview" />)}
               </label>
 
               <label htmlFor="title">
