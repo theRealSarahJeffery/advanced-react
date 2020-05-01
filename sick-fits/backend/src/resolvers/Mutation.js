@@ -50,13 +50,13 @@ const Mutations = {
     const item = await ctx.db.query.item({ where }, `{id title user { id }} `);
     // 2. check if they own that item , or have the permission
     const ownsItem = item.user.id === ctx.request.userId;
-    const hasPermissiosns = ctx.request.user.permissions.some
+    const hasPermissions = ctx.request.user.permissions.some
       (permission =>
         ['ADMIN', 'ITEMDELETE'].includes(permission)
       );
 
-    if (!ownsItem && hasPermissiosns) {
-      throw new Error("you don't have permission to do that!");
+    if (!ownsItem && hasPermissions) {
+      throw new Error("You don't have permission to do that!");
     }
     // 3. Delete it!
     return ctx.db.mutation.deleteItem({ where }, info);
@@ -139,7 +139,7 @@ const Mutations = {
     });
 
     //4. return the message
-    return { meaasge: 'Thanks' };
+    return { message: 'Thanks' };
   },
   async resetPassword (parent, args, ctx, info) {
     //1. check of the passwords match
@@ -219,7 +219,7 @@ const Mutations = {
       where: {
         user: { id: userId },
         item: { id: args.id },
-      }
+      },
     });
 
     // 3. check if that iem is already in their cart and increment it by 1 if it is
@@ -290,6 +290,7 @@ const Mutations = {
             image
             largeImage
           }
+        }
         }`
     );
 
