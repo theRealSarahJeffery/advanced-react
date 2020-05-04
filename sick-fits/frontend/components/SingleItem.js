@@ -50,19 +50,22 @@ class SingleItem extends Component {
           if (error) return <Error error={error} />;
           if (loading) return <p>Loading...</p>;
           if (!data.item) return <p>No ItemFound for {this.props.id}</p>;
-          console.log(data);
-          return <SingleItemStyles>
-            <Head>
-              <title>Sick Fits | {item.title}</title>
-            </Head>
-            <img scr={item.largeImage} alt={item.title} />
-            <div className="detais">
-              <h2>Viewing {item.title}</h2>
-              <p>{item.description}</p>
-            </div>
-          </SingleItemStyles>
-        }}
-        <p> single item component!{this.props.id}</p>
+          const item = data.item;
+          return (
+            <SingleItemStyles>
+              <Head>
+                <title>Sick Fits | {item.title}</title>
+              </Head>
+              <img src={item.largeImage} alt={item.title} />
+              <div className="details">
+                <h2>Viewing {item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+            </SingleItemStyles>
+          );
+        }
+        }
+        {/* <p> single item component!{this.props.id}</p> */}
       </Query>
     );
   }
