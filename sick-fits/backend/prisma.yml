@@ -1,6 +1,7 @@
-endpoint: "https://us1.prisma.sh/sarah-jeffery/sicccckfits/dev"
+#endpoint: "https://us1.prisma.sh/sarah-jeffery/sicccckfits/dev"
+endpoint: https://sick-fits-prod-b2c86d03b8.herokuapp.com/sick-fits-prod/prod
 datamodel: datamodel.prisma
-# secret: ${env:PRISMA_SECRET}
+secret: ${env:PRISMA_SECRET}
 
 hooks:
   post-deploy:
